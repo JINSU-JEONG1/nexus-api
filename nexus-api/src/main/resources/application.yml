@@ -1,0 +1,70 @@
+# ========================================
+# Spring Boot 애플리케이션 설정 파일 (YAML)
+# ========================================
+
+# Spring Boot 설정
+spring:
+  # 애플리케이션 기본 정보
+  application:
+    name: apr-backend-assignment  # 애플리케이션 이름
+
+  # ========================================
+  # 데이터베이스 설정 (H2 인메모리 DB)
+  # ========================================
+  datasource:
+    driver-class-name: org.h2.Driver  # H2 JDBC 드라이버
+    url: jdbc:h2:mem:testdb        # H2 인메모리 데이터베이스 URL
+    username: apr                  # 기본 사용자명
+    password: apr1234!@#                     # 비밀번호 (비어있음)
+
+  # ========================================
+  # H2 콘솔 설정 (개발용)
+  # ========================================
+  h2:
+    console:
+      enabled: true                # H2 웹 콘솔 활성화
+      path: /h2-console           # 콘솔 접속 경로
+
+  # ========================================
+  # JPA (Java Persistence API) 설정
+  # ========================================
+  jpa:
+    # 데이터베이스 플랫폼 지정 (H2용)
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop # 어플리케이션을 시작할 때 데이터베이스를 초기화하고 다시 테이블 생성
+    show-sql: true # SQL 쿼리 로깅 활성화 (개발용)
+    # Hibernate 추가 속성
+    properties:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true      # 쿼리 로그 포맷 (정렬)
+        show_sql: true        # 쿼리 로그 출력
+      
+# ========================================
+# 서버 설정
+# ========================================
+server:
+  port: 8080  # 웹 서버 포트
+
+# ========================================
+# Swagger UI 설정
+# ========================================
+springdoc:
+  api-docs:
+    path: /api-docs  # API 문서 JSON 경로
+  swagger-ui:
+    path: /swagger-ui.html  # Swagger UI 경로
+    enabled: true  # Swagger UI 활성화
+    operationsSorter: method  # API 정렬 방식
+    tagsSorter: alpha  # 태그 정렬 방식
+
+# ========================================
+# 로깅 설정 (개발용 상세 로그)
+# ========================================
+logging:
+  level:
+    com.apr.backend: DEBUG                    # 우리 프로젝트 패키지 DEBUG 레벨
+    org.springframework.web: DEBUG           # Spring Web DEBUG 레벨
+    org.springframework.boot.autoconfigure: ERROR
+    org.hibernate.SQL: DEBUG                 # Hibernate SQL 쿼리 로그
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # SQL 파라미터 바인딩 로그

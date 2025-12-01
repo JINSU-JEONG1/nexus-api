@@ -1,6 +1,7 @@
-package com.nexus.api.dto;
+package com.nexus.backend.api.user.dto;
 
-import com.nexus.api.entity.User;
+import com.nexus.backend.api.user.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

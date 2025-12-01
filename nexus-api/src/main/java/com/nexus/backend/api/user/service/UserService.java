@@ -1,13 +1,13 @@
-package com.nexus.api.service;
+package com.nexus.backend.api.user.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nexus.api.repository.UserRepository;
-import com.nexus.api.dto.UserDto;
-import com.nexus.api.entity.User;
+import com.nexus.backend.api.user.entity.User;
+import com.nexus.backend.api.user.dto.UserDto;
+import com.nexus.backend.api.user.repository.UserRepository;
 
 import java.util.List;
 

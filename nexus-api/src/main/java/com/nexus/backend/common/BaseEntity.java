@@ -1,4 +1,4 @@
-package com.nexus.api.common;
+package com.nexus.backend.common;
 
 import java.time.LocalDateTime;
 
